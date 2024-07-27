@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evaluation Result</title>
+</head>
+<body>
+    <header>
+        <h1>Evaluation Result</h1>
+    </header>
+            {% if result %}
+            <p>{{ result }}</p>
+            {% endif %}
+            {% if metrics %}
+            <ul>
+                {% for key, value in metrics.items() %}
+                <li>{{ key }}: {{ value }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+    <!-- Place image tags here to display after the metrics -->
+    <img src="{{ url_for('static', filename='confusion_matrix.png') }}?{{ cache_buster }}" alt="Confusion Matrix">
+    <img src="{{ url_for('static', filename='roc_curve.png') }}?{{ cache_buster }}" alt="ROC Curve">
+    
+    <a href="/">Go Back</a>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home - Pneumonia Detection System</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Pneumonia Detection System</h1>
+    </header>
+    <main>
+        <p>Use our system to detect pneumonia in chest X-ray images. You can either upload an image for prediction, start model training, or evaluate the model using the links below.</p>
+        <nav>
+            <a href="{{ url_for('upload_file') }}">Upload an Image for Prediction</a>
+            <a href="{{ url_for('train') }}">Start Model Training</a>
+            <a href="{{ url_for('evaluate_validation') }}">Evaluate Validation Set</a>
+            <a href="{{ url_for('evaluate_test') }}">Evaluate Test Set</a>
+        </nav>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dataset</th>
+                    <th>Number of Samples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Training Samples</td>
+                    <td>5216</td>
+                </tr>
+                <tr>
+                    <td>Testing Samples</td>
+                    <td>624</td>
+                </tr>
+                <tr>
+                    <td>Validation Samples</td>
+                    <td>16</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="images">
+            <div>
+                <img src="{{ url_for('static', filename='pneumonia.png') }}" alt="Pneumonia Chest X-ray">
+                <p>Pneumonia Chest X-ray</p>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='normal.png') }}" alt="Normal Chest X-ray">
+                <p>Normal Chest X-ray</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 Pneumonia Detection System. All rights reserved.
+    </footer>
+</body>
+</html>

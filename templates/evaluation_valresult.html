@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evaluation Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Evaluation Result</h1>
+    </header>
+    {% if result %}
+    <p>{{ result }}</p>
+    {% endif %}
+    {% if accuracy or validation_loss %}
+    <table>
+        {% if accuracy %}
+        <tr>
+            <td>Accuracy:</td>
+            <td>{{ accuracy }}</td>
+        </tr>
+        {% endif %}
+        {% if validation_loss %}
+        <tr>
+            <td>Average Validation Loss:</td>
+            <td>{{ validation_loss }}</td>
+        </tr>
+        {% endif %}
+    </table>
+    {% endif %}
+    {% if metrics %}
+    <ul>
+        {% for key, value in metrics.items() %}
+        <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <a href="/">Go Back</a>
+</body>
+</html>

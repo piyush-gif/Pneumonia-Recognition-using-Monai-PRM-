@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Upload Image for Pneumonia Prediction</h1>
+    </header>
+    <main>
+        <form action="/upload" method="post" enctype="multipart/form-data" class="image-upload-form">
+            <input type="file" name="file" id="file">
+            <label for="file" class="file-input-label">Choose a file</label>
+            <input type="submit" value="Upload" class="submit-button">
+        </form>
+    </main>
+    <footer>
+        <p>© 2023 Pneumonia Prediction Tool</p>
+    </footer>
+</body>
+</html>
